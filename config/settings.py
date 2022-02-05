@@ -32,7 +32,7 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
-
+    'home',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -48,7 +48,7 @@ MIDDLEWARE = [
 ]
 
 if DEBUG:
-    MIDDLEWARE += 'debug_toolbar.middleware.DebugToolbarMiddleware'
+    MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
 ROOT_URLCONF = 'config.urls'
 
