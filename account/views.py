@@ -11,7 +11,7 @@ class UserLoginView(views.LoginView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sing in'
+        context['title'] = 'Login'
         return context
 
     def get_success_url(self):
