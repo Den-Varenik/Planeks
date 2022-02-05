@@ -4,8 +4,9 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(settings.ADMIN_URL, admin.site.urls),
     path('', include(('home.urls', 'home'), namespace="home")),
+    path('', include(('account.urls', 'account'), namespace='account')),
 ]
 
 if settings.DEBUG:

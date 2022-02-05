@@ -8,13 +8,23 @@ env = environ.Env(
     DJANGO_DEBUG=(bool, False),
     DJANGO_SECRET_KEY=(str, 'write_your_secret_key_to_dot_env'),
     DJANGO_ALLOWED_HOSTS=(list, ['*']),
-    DJANGO_DATABASE_URL=(str, 'postgres://USER:PASSWORD@posgresdb:PORT/database')
+    DJANGO_DATABASE_URL=(str, 'postgres://USER:PASSWORD@posgresdb:PORT/database'),
+    ADMIN_EMAIL=(str, 'admin@gmail.com'),
+    ADMIN_USERNAME=(str, 'admin'),
+    ADMIN_PASSWORD=(str, 'admin'),
 )
 environ.Env.read_env(env_file=str(BASE_DIR / '.env'))
 
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 DEBUG = env.bool('DJANGO_DEBUG')
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
+
+# Admin preferentses
+
+ADMIN_URL = 'admin/'
+ADMIN_EMAIL = env('ADMIN_EMAIL')
+ADMIN_USERNAME = env('ADMIN_USERNAME')
+ADMIN_PASSWORD = env('ADMIN_PASSWORD')
 
 # Application definition
 
@@ -33,6 +43,7 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     'home',
+    'account',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
