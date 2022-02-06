@@ -7,6 +7,7 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     path('', include(('home.urls', 'home'), namespace="home")),
     path('', include(('account.urls', 'account'), namespace='account')),
+    path('schema/', include(('schema.urls', 'schema'), namespace='schema'))
 ]
 
 if settings.DEBUG:
